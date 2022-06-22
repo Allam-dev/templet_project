@@ -4,3 +4,5 @@ abstract class DioXMethods {
   static String get put => "put";
   static String get delete => "delete";
 }
+
+enum Methods { get, post, delete, put }

@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:templete_project/core/debugging/log.dart';
+import 'package:templete_project/core/functions/enum_to_string.dart';
+import 'package:templete_project/core/remote_services/dio_x/constants/apis.dart';
+import 'package:templete_project/core/remote_services/dio_x/constants/methods.dart';
+import 'package:templete_project/core/remote_services/dio_x/dio_x.dart';
 
 void main() {
   runApp(const MyApp());
@@ -106,7 +111,16 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: () {
+          DioX.instance.request(
+            endPoint: APIs.login,
+            method: Methods.post,
+            data: {
+              "email":"ahmed3@gmail.com",
+              "password":"password",
+            }
+          ).then((value) => value.fold((l) => Log.error(l.toString()), (r) => Log.debug(r)));
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
