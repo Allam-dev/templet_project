@@ -2,15 +2,15 @@ import 'dart:io';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:templete_project/core/debugging/log.dart';
-import 'package:templete_project/core/error/failure/failure.dart';
-import 'package:templete_project/core/error/failure/network_failures/connection_failure.dart';
-import 'package:templete_project/core/error/failure/unknown_failure.dart';
-import 'package:templete_project/core/functions/enum_to_string.dart';
-import 'package:templete_project/core/remote_services/dio_x/constants/methods.dart';
-import 'package:templete_project/core/remote_services/dio_x/dio_error_handler.dart';
+import 'package:templete_project/core/extension_methods/enum.dart';
 
+import '../../debugging/log.dart';
+import '../../failure/failure.dart';
+import '../../failure/network_failures/connection_failure.dart';
+import '../../failure/unknown_failure.dart';
 import 'constants/dio_x_config.dart';
+import 'constants/methods.dart';
+import 'dio_error_handler.dart';
 
 class DioX {
   DioX._();
@@ -18,7 +18,7 @@ class DioX {
 
   final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: baseUrl,
+      baseUrl: DioXConfiguration.baseUrl,
     ),
   );
 
@@ -35,7 +35,7 @@ class DioX {
     try {
       await InternetAddress.lookup('google.com');
       options = options ?? Options();
-      options.method = enumToString(method);
+      options.method = method.valueToString();
       Response response = await _dio.request(
         endPoint,
         data: data,

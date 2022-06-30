@@ -4,6 +4,6 @@ abstract class StatusCodes {
   static int get forbidden => 403;
   static int get notFound => 404;
   static int get timeout => 408;
-// 500 -> 599
+  // 500 -> 599
   static int get internalServerError => 500;
 }

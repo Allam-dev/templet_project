@@ -1,14 +1,9 @@
 import 'package:dio/dio.dart';
-import 'package:templete_project/core/debugging/log.dart';
-import 'package:templete_project/core/error/failure/failure.dart';
-import 'package:templete_project/core/error/failure/network_failures/cancel_failure.dart';
-import 'package:templete_project/core/error/failure/network_failures/forbidden_failure.dart';
-import 'package:templete_project/core/error/failure/network_failures/internal_server_error_failure.dart';
-import 'package:templete_project/core/error/failure/network_failures/not_found_failure.dart';
-import 'package:templete_project/core/error/failure/network_failures/timeout_failure.dart';
-import 'package:templete_project/core/error/failure/network_failures/unauthorized_failure.dart';
-import 'package:templete_project/core/error/failure/unknown_failure.dart';
-import 'package:templete_project/core/remote_services/dio_x/constants/status_codes.dart';
+import '../../debugging/log.dart';
+import '../../failure/failure.dart';
+import '../../failure/network_failures/network_failures.dart';
+import '../../failure/unknown_failure.dart';
+import 'constants/status_codes.dart';
 
 abstract class DioErrorHandler {
   static Failure handle(DioError error) {
