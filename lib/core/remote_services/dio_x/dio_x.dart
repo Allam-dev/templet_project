@@ -23,7 +23,7 @@ class DioX {
   );
 
   Future<Either<Failure, Response>> request({
-    required String endPoint,
+    required String endpoint,
     required Methods method,
     dynamic data,
     Map<String, dynamic>? queryParameters,
@@ -37,7 +37,7 @@ class DioX {
       options = options ?? Options();
       options.method = method.valueToString();
       Response response = await _dio.request(
-        endPoint,
+        endpoint,
         data: data,
         cancelToken: cancelToken,
         onReceiveProgress: onReceiveProgress,

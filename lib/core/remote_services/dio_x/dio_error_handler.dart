@@ -18,7 +18,7 @@ abstract class DioErrorHandler {
     } else if (error.type == DioErrorType.response) {
       return _responseErrorHandler(error.response!);
     } else {
-      Log.error("error");
+      Log.error(error);
       return UnknownFailure();
     }
   }
@@ -40,7 +40,7 @@ abstract class DioErrorHandler {
       Log.error("unauthorized error");
       return UnauthorizedFailure();
     } else {
-      Log.error("error");
+      Log.error("error code : ${response.statusCode}\nerror message : ${response.statusMessage}");
       return UnknownFailure();
     }
   }
