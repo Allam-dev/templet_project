@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 abstract class AppRouter {
-  static String addRoute({required Widget view}) {
-    _routes[view.toString()] = (context) => view;
-    return view.toString();
+  static String addRoute({required Widget screen}) {
+    _routes[screen.toString()] = (context) => screen;
+    return screen.toString();
   }
 
   static void removeRoute({required String routeName}) {

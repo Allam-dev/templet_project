@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
-import '../../debugging/log.dart';
-import '../../failure/failure.dart';
-import '../../failure/network_failures/network_failures.dart';
-import '../../failure/unknown_failure.dart';
+import '../../../debugging/log.dart';
+import '../../../failure/failure.dart';
+import '../../../failure/network_failures/network_failures.dart';
+import '../../../failure/unknown_failure.dart';
 import 'constants/status_codes.dart';
 
 abstract class DioErrorHandler {
