@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 
 abstract class AppRouter {
-  static String addRoute({required Widget screen}) {
+  static String routeOf({required Widget screen}) {
     _routes[screen.toString()] = (context) => screen;
     return screen.toString();
   }
 
-  static void removeRoute({required String routeName}) {
-    _routes.remove(routeName);
-  }
 
   static Map<String, WidgetBuilder> _routes = {};
   
