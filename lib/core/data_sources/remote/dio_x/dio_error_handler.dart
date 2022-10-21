@@ -25,7 +25,7 @@ abstract class DioErrorHandler {
 
   static Failure _responseErrorHandler(Response response) {
     Log.error(
-        "url : ${response.realUri}\nheaders : ${response.headers}\nresponse : $response");
+        "url : ${response.realUri}\n=====\nheaders : \n${response.headers}\n=====\nresponse : $response");
     if (response.statusCode == StatusCodes.notFound) {
       Log.error("not found error");
       return NotFoundFailure();

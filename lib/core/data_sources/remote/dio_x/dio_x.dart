@@ -45,7 +45,7 @@ class DioX {
         queryParameters: queryParameters,
       );
       Log.debug(
-          "url : ${response.realUri}\nheaders : ${response.headers}\nresponse : $response");
+        "url : ${response.realUri}\n=====\nheaders : \n${response.headers}\n=====\nresponse : $response");
       return Right(response);
     } on DioError catch (error) {
       return Left(DioErrorHandler.handle(error));
