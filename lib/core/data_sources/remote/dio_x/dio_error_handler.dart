@@ -24,6 +24,8 @@ abstract class DioErrorHandler {
   }
 
   static Failure _responseErrorHandler(Response response) {
+    Log.error(
+        "url : ${response.realUri}\nheaders : ${response.headers}\nresponse : $response");
     if (response.statusCode == StatusCodes.notFound) {
       Log.error("not found error");
       return NotFoundFailure();
@@ -40,7 +42,8 @@ abstract class DioErrorHandler {
       Log.error("unauthorized error");
       return UnauthorizedFailure();
     } else {
-      Log.error("error code : ${response.statusCode}\nerror message : ${response.statusMessage}");
+      Log.error(
+          "error code : ${response.statusCode}\nerror message : ${response.statusMessage}");
       return UnknownFailure();
     }
   }
