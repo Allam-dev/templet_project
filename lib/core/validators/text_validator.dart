@@ -1,11 +1,9 @@
-import 'validator.dart';
-
-class TextValidator implements Validator {
-  @override
-  String call(String? value) {
-    if (value == null || value.isEmpty) {
-      return "required";
+extension on String? {
+  String? get validAsText {
+    if (this == null || this!.isEmpty) {
+      return 'This field is required';
+    } else {
+      return null;
     }
-    return "";
   }
 }
