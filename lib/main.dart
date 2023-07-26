@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:templete_project/core/presentation/router/app_router.dart';
-// import 'package:templete_project/views/screen_one.dart';
+import 'package:templete_project/core/presentation/routes/app_navigator.dart';
+import 'package:templete_project/core/presentation/routes/app_router.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      navigatorKey: navigatorKey,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),

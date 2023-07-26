@@ -7,23 +7,23 @@ import '../../../debugging/log.dart';
 import '../../../failure/failure.dart';
 import '../../../failure/network_failures/connection_failure.dart';
 import '../../../failure/unknown_failure.dart';
-import 'constants/dio_x_config.dart';
+import 'constants/api_caller_config.dart';
 import 'constants/methods.dart';
-import 'dio_error_handler.dart';
+import 'api_caller_error_handler.dart';
 
-class DioX {
-  DioX._();
-  static final DioX instance = DioX._();
+class APICaller {
+  APICaller._();
+  static final APICaller instance = APICaller._();
 
   final Dio _dio = Dio(
     BaseOptions(
-      baseUrl: DioXConfiguration.baseUrl,
+      baseUrl: APICallerConfiguration.baseUrl,
     ),
   );
 
-  Future<Either<Failure, Response>> request({
+  Future<Either<Failure, Response>> call({
     required String endpoint,
-    required Methods method,
+    required APIMethods method,
     dynamic data,
     Map<String, dynamic>? queryParameters,
     CancelToken? cancelToken,
@@ -45,10 +45,10 @@ class DioX {
         queryParameters: queryParameters,
       );
       Log.debug(
-        "url : ${response.realUri}\n=====\nheaders : \n${response.headers}\n=====\nresponse : $response");
+          "url : ${response.realUri}\n=====\nheaders : \n${response.headers}\n=====\nresponse : $response");
       return Right(response);
     } on DioError catch (error) {
-      return Left(DioErrorHandler.handle(error));
+      return Left(APICallerErrorHandler.handle(error));
     } on SocketException {
       Log.error("connection error");
       return Left(ConnectionFailure());

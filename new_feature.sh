@@ -8,9 +8,9 @@ mkdir $feature_name
 
 cd $feature_name
 
-mkdir repos presentation entities
+mkdir repo view model veiw_model
 
-cd presentation 
+cd view 
 
 mkdir pages widgets blocs
 

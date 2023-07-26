@@ -5,7 +5,7 @@ import '../../../failure/network_failures/network_failures.dart';
 import '../../../failure/unknown_failure.dart';
 import 'constants/status_codes.dart';
 
-abstract class DioErrorHandler {
+abstract class APICallerErrorHandler {
   static Failure handle(DioError error) {
     if (error.type == DioErrorType.sendTimeout ||
         error.type == DioErrorType.connectTimeout ||
