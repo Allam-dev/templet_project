@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      routes: AppRouter.routes,
+      routes: routes,
       // initialRoute: const ScreenOne().route,
     );
   }
